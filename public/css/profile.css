@@ -1,0 +1,52 @@
+/*VIDEO GAME CARD STYLING*/
+.profile-vg-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.profile-vg {
+    margin: 10px;
+    box-shadow: 0 0 20px grey;
+    border-radius: 10px;
+}
+
+.profile-vg:hover {
+    box-shadow: 0 10px 20px grey;
+    position: relative;
+    z-index: 0;
+    bottom: 10px;
+}
+
+.profile-vg img {
+    width: 200px;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.profile-vg a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+    .profile-vg {
+        font-size: 16px !important;
+    }
+
+    .profile-vg img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+}
+
+/*BANDCAMP EMBED STYLING*/
+.profile-music {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.profile-music iframe {
+    box-shadow: 0 0 10px grey;
+    margin: 10px;
+}

@@ -1,0 +1,60 @@
+/*NAVIGATION CARD STYLING*/
+.navcard {
+    position: relative;
+    text-align: center;
+    color: whitesmoke;
+    box-shadow: 0 0 20px black;
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    text-shadow: 0 0 20px black;
+}
+
+.navcard img {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+}
+
+.navcard:hover {
+    bottom: 5px;
+}
+
+@media screen and (max-width: 900px) {
+    .navcard {
+        height: 120px !important;
+        width: 120px !important;
+    }
+}
+
+/*INTRODUCTION AND NAVCARD COLUMN STYLING*/
+.index-column-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.index-column-container > section {
+    text-align: left;
+    padding: 40px;
+    width: 50%;
+}
+
+.index-column-container > section > div{
+    justify-content: left;
+}
+
+@media screen and (max-width: 1300px) {
+    .index-column-container > section > div{
+        justify-content: center !important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .index-column-container > section {
+        text-align: center;
+        width: 100%;
+    }
+}
