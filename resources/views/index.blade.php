@@ -4,8 +4,6 @@
 @include("./generic/head")
 
 <body>
-<!--GO TO TOP BUTTON-->
-<img src="/assets/images/gtt-arrow.png" id="go-to-top" alt="Go to top" onclick="topFunction()">
 
 @include("./generic/header")
 
@@ -108,11 +106,8 @@
 </main>
 
 @include("./generic/footer");
+@include("./generic/scripts");
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="/js/gtt-button.js"></script>
 </body>
 
 </html>

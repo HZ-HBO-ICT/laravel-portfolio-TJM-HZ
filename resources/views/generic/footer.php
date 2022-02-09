@@ -2,7 +2,7 @@
     <div class="flex-container">
         <div class="footer-column">
             <h3>
-                <a href="index.html" class="lettermark">Tim's Website</a>
+                <a href="index" class="lettermark">Tim's Website</a>
             </h3>
         </div>
 
@@ -11,11 +11,11 @@
                 Website Navigation
             </h3>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index">Home</a></li>
+                <li><a href="profile">Profile</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+                <li><a href="blog">Blog</a></li>
+                <li><a href="faq">FAQ</a></li>
             </ul>
         </div>
 
