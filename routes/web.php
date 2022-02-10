@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +32,4 @@ Route::get('/posts/{post}', function ($post) {
 
 Route::get('/', [WelcomeController::class, 'show']);
 Route::get('/{page}', [PageController::class, 'show']);
-Route::get('/blog/{post}', [PageController::class, 'show']);
+Route::get('/blog/{url}', [PostController::class, 'show']);
