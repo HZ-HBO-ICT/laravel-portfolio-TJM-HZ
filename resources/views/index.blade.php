@@ -113,7 +113,7 @@
             <h1>Frequently Asked Questions</h1>
             <p>Ever wondered how to print a document at the HZ? Or what to do when you are ill? <br>
                 You can find answers to your pressing questions in the FAQ!</p>
-            <a href="faq.html">Go to the FAQ &#8594;</a>
+            <a href="faq">Go to the FAQ &#8594;</a>
         </div>
     </section>
 </main>

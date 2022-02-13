@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FaqController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PageController;
@@ -31,5 +32,6 @@ Route::get('/posts/{post}', function ($post) {
 });
 
 Route::get('/', [WelcomeController::class, 'show']);
+Route::get('/faq', [FaqController::class, 'show']);
 Route::get('/{page}', [PageController::class, 'show']);
 Route::get('/blog/{url}', [PostController::class, 'show']);
