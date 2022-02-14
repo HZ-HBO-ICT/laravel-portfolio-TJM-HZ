@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
+/*
 Route::get('/posts/{post}', function ($post) {
     $posts = [
         'my-first-post' => 'Hello, this is my first blog post!',
@@ -30,8 +32,20 @@ Route::get('/posts/{post}', function ($post) {
         'post' => $posts[$post]
     ]);
 });
+*/
 
 Route::get('/', [WelcomeController::class, 'show']);
 Route::get('/faq', [FaqController::class, 'show']);
-Route::get('/{page}', [PageController::class, 'show']);
+
+
+
+Route::get('/blog', function () {
+        return view('blog', [
+            'posts' => App\Models\Post::latest()->get()
+        ]);
+});
+
 Route::get('/blog/{url}', [PostController::class, 'show']);
+
+Route::get('/{page}', [PageController::class, 'show']);
+

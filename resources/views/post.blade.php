@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en-us">
+@extends('layout')
+
+
 
 <head>
     <meta charset="UTF-8">
@@ -12,30 +13,23 @@
     <link rel="stylesheet" href="/bs5/css/bootstrap.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/blog.css">
-    <link rel="canonical" href=`https://tjm-hz.github.io/blog/{{$post->slug}}`>
+    <link rel="canonical" href=`https://tjm-hz.github.io/blog/{{$post->url}}`>
 </head>
+@section('css')
+    <link rel="stylesheet" href="/css/blog.css">
+@endsection()
 
-<body>
-@include('./generic/header')
-
-<main>
+@section('main')
     <article>
-        <a href="../blog.html">&#8592; Back to Blog</a>
+        <a href="/blog">&#8592; Back to Blog</a>
 
         <div class="text-align-center"><h1> {{$post->title}} </h1>
-            <h2> {{$post->slug}} </h2>
+            <h2> {{$post->description}} </h2>
             <br>
 
             {{$post->body}}
 
             <br>
-        <a href="../blog">&#8592; Back to Blog</a>
+        <a href="/blog">&#8592; Back to Blog</a>
     </article>
-</main>
-
-@include('./generic/footer')
-@include('./generic/scripts')
-
-</body>
-
-</html>
+@endsection()

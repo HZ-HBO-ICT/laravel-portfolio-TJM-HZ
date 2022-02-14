@@ -25,10 +25,10 @@
         <a class="lettermark" href="/">Tim's Website</a>
 
         <a class="{{ Request::path() === '/' ? 'currentpage' : '' }}" href="/">Home</a>
-        <a class="{{ Request::path() === 'profile' ? 'currentpage' : '' }}" href="profile">Profile</a>
-        <a class="{{ Request::path() === 'dashboard' ? 'currentpage' : '' }}" href="dashboard">Dashboard</a>
-        <a class="{{ Request::path() === 'blog' ? 'currentpage' : '' }}" href="blog">Blog</a>
-        <a class="{{ Request::path() === 'faq' ? 'currentpage' : '' }}" href="faq">FAQ</a>
+        <a class="{{ Request::path() === 'profile' ? 'currentpage' : '' }}" href="/profile">Profile</a>
+        <a class="{{ Request::path() === 'dashboard' ? 'currentpage' : '' }}" href="/dashboard">Dashboard</a>
+        <a class="{{ Request::path() === 'blog' ? 'currentpage' : '' }}" href="/blog">Blog</a> <!-- TODO: Add wildcard -->
+        <a class="{{ Request::path() === 'faq' ? 'currentpage' : '' }}" href="/faq">FAQ</a>
     </nav>
 </header>
 

@@ -6,9 +6,9 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function show($slug)
+    public function show($url)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
+        $post = Post::where('url', $url)->firstOrFail();
 
         return view('post', [
             'post' => $post
