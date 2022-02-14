@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en-us">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tim's Website | Profile</title>
-    <meta name="description"
-          content="Here you'll find a bit of information about me. Who I am, what I like, what I do, that sort of thing.">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="bs5/css/bootstrap.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/profile.css">
-    <link rel="canonical" href="https://tjm-hz.github.io/profile">
-</head>
+@section('css')
+<link rel="stylesheet" href="css/profile.css">
+@endsection()
 
-
-<body>
-
-@include("./generic/header")
-
-<main>
+@section('main')
     <section class="wallpaper" style="background-image: url(assets/images/profile/bg_profile.png);">
         <div class="wallpaper-text">
             <h1>Profile</h1>
@@ -155,15 +138,4 @@
             to aid in developing such software myself one day.
         </p>
     </section>
-</main>
-
-@include("./generic/footer")
-@include("./generic/scripts")
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="js/gtt-button.js"></script>
-</body>
-
-</html>
+@endsection()

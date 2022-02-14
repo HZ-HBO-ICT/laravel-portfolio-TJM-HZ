@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en-us">
+@extends ('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tim's Website | Dashboard</title>
-    <meta name="description"
-          content="The dashboard page visualizes all my study progress, displaying my grades, EC and other progress in tables and bars.">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="bs5/css/bootstrap.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="canonical" href="https://tjm-hz.github.io/dashboard">
-</head>
-
-<body>
-
-@include("./generic/header")
-
-<main>
+@section('css')
+<link rel="stylesheet" href="css/dashboard.css">
+@endsection()
+@section('main')
     <section class="wallpaper" style="background-image: url(assets/images/dashboard/bg_dashboard.png);">
         <div class="wallpaper-text">
             <h1>Dashboard</h1>
@@ -195,11 +178,4 @@
         </div>
 
     </section>
-</main>
-
-@include("./generic/footer");
-@include("./generic/scripts");
-
-</body>
-
-</html>
+@endsection()
