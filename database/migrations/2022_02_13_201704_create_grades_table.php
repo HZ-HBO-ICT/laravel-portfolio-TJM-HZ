@@ -18,6 +18,7 @@ class CreateGradesTable extends Migration
             $table->string('course_name');
             $table->decimal('lowest_passing_grade', $precision = 3, $scale = 1)->default(5.5)->comment('Lowest grade to pass so average calculations can be applied');
             $table->decimal('best_grade', $precision = 3, $scale = 1)->nullable();
+            $table->decimal('ec', $precision=4, $scale=2);
             $table->date('passed_at')->nullable()->comment('Date that the grade was larger than or equal to the lowest passing grade');
             $table->timestamps();
         });

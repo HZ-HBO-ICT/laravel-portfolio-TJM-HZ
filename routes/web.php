@@ -37,15 +37,13 @@ Route::get('/posts/{post}', function ($post) {
 Route::get('/', [WelcomeController::class, 'show']);
 Route::get('/faq', [FaqController::class, 'show']);
 
-
-
-Route::get('/blog', function () {
-        return view('blog', [
-            'posts' => App\Models\Post::latest()->get()
-        ]);
+Route::get('/dashboard', function () {
+    return view('dashboard', [
+        'grades' => App\Models\Grade::all()
+    ]);
 });
 
-Route::get('/blog/{url}', [PostController::class, 'show']);
+Route::get('/blog', 'App\Http\Controllers\PostController@index');
+Route::get('/blog/{url}', 'App\Http\Controllers\PostController@show');
 
 Route::get('/{page}', [PageController::class, 'show']);
-

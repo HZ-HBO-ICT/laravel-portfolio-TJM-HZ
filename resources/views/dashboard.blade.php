@@ -30,113 +30,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="bg-info">
-                        <td rowspan="3" class="bg-whitesmoke">1</td>
+                    @foreach($grades as $grade)
+                        @if($grade->best_grade === null)
+                            <tr class="bg-info">
+                            @elseif($grade->best_grade >= $grade->lowest_passing_grade)
+                            <tr class="bg-success">
+                            @else
+                            <tr class="bg-danger">
+                        @endif
+                            <td class="bg-whitesmoke">PLACEHOLDER</td>
 
-                        <td>Programme and Career Orientation</td>
-                        <td>2.5</td>
-                        <td>Assessment</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td>Computer Science Basics</td>
-                        <td>5</td>
-                        <td>Written</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td>Programming Basics</td>
-                        <td>5</td>
-                        <td>Case Study</td>
-                        <td>...</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="5"></td>
-                    </tr>
-
-                    <tr class="bg-info">
-                        <td rowspan="2" class="bg-whitesmoke">2</td>
-
-                        <td rowspan="2">Object Oriented Programming</td>
-                        <td rowspan="2">10</td>
-                        <td>Case Study</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td>Project</td>
-                        <td>...</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="5"></td>
-                    </tr>
-
-                    <tr class="bg-info">
-                        <td rowspan="4" class="bg-whitesmoke">3</td>
-
-                        <td>Framework Development 1</td>
-                        <td>5</td>
-                        <td>Case Study</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td rowspan="3">Framework Project 1</td>
-                        <td rowspan="3">7.5</td>
-                        <td>Project</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td>Assessment</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td>Report</td>
-                        <td>...</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="5"></td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td rowspan="3" class="bg-whitesmoke">4</td>
-                        <td rowspan="3">Framework Project 2</td>
-                        <td rowspan="3">10</td>
-                        <td>Portfolio</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td>Project</td>
-                        <td>...</td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td>Assessment</td>
-                        <td>...</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="5"></td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td class="bg-whitesmoke">Entire Year</td>
-
-                        <td>Personal Professional Development</td>
-                        <td>12.5</td>
-                        <td>Portfolio</td>
-                        <td>...</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="5"></td>
-                    </tr>
-                    <tr class="bg-info">
-                        <td class="bg-whitesmoke">Whenever</td>
-
-                        <td>Personal Professional Development</td>
-                        <td>2.5</td>
-                        <td>Personality</td>
-                        <td>...</td>
-                    </tr>
+                            <td>{{$grade->course_name}}</td>
+                            <td>{{$grade->ec}}</td>
+                            <td>typegoeshere</td>
+                            <td>{{$grade->best_grade}}</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -166,6 +75,10 @@
                         Failing to reach at least 60 EC will result in an NBSA (Negative Binding Study Advice),<br>
                         which would likely prevent me from continuing my study.</div>
                 </div>
+
+                @for($i = 0; $i < count($grades); $i++)
+
+                @endfor
 
                 <div>
                     <div class="progress">
