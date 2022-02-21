@@ -15,7 +15,7 @@ class PostController extends Controller
 
         $posts = Post::latest()->get();
 
-        return view('blog', [
+        return view('posts.index', [
             'posts' => $posts
         ]);
     }
@@ -26,7 +26,7 @@ class PostController extends Controller
 
         $post = Post::where('url', $url)->firstOrFail();
 
-        return view('post', [
+        return view('posts.show', [
             'post' => $post
         ]);
     }
@@ -34,27 +34,51 @@ class PostController extends Controller
     public function create()
     {
         // Show a view to create a new resource
+
+        return view('posts.create');
     }
 
     public function store()
     {
         // Persist the resource
+
+        $post = new Post();
+        $post->title = request('title');
+        $post->description = request('description');
+        $post->body = request('body');
+        $post->url = request('url');
+
+        $post->save();
+
+        return redirect('/blog');
     }
 
-    public function edit(Post $post)
+    public function edit($url)
     {
+        $post = Post::where('url', $url)->firstOrFail();
         // Show a view to edit an existing resource
+        return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Post $post)
+    public function update($url)
     {
+        $post = Post::where('url', $url)->firstOrFail();
         // Persist the edited resource
+        $post->title = request('title');
+        $post->description = request('description');
+        $post->body = request('body');
+        $post->url = request('url');
+        $post->save();
+
+        return redirect('/blog/'. $post->url);
     }
 
-    public function destroy(Post $post)
+    public function destroy($url)
     {
+        $post = Post::where('url', $url)->firstOrFail();
         // Destroy the resource
+        $post->delete();
+
+        return redirect('/blog');
     }
-
-
 }

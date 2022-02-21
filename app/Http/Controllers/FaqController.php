@@ -18,42 +18,54 @@ class FaqController extends Controller
         ]);
     }
 
-    public function show($url)
+    public function show()
     {
         // Show a single resource
-        /*
-        $faq = faq::where('url', $url)->firstOrFail();
-
-        return view('faqs.show', [
-            'faq' => $faq
-        ]);
-        */
     }
 
     public function create()
     {
         // Show a view to create a new resource
+
+        return view('faqs.create');
     }
 
     public function store()
     {
         // Persist the resource
+        $faq = new Faq();
+        $faq->question = request('question');
+        $faq->answer = request('answer');
+
+        $faq->save();
+
+        return redirect('/faq');
     }
 
-    public function edit()
+    public function edit($id)
     {
+        $faq = Faq::find($id);
         // Show a view to edit an existing resource
+        return view('faqs.edit', ['faq' => $faq]);
     }
 
-    public function update()
+    public function update($id)
     {
+        $faq = Faq::find($id);
+
+        $faq->question = request('question');
+        $faq->answer = request('answer');
+        $faq->save();
+
+        return redirect('/faq');
         // Persist the edited resource
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-        // Destroy the resource
+        $faq = Faq::find($id);
+        $faq->delete();
+
+        return redirect('/faq');
     }
-
-
 }
