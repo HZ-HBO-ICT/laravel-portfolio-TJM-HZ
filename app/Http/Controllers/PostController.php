@@ -20,11 +20,11 @@ class PostController extends Controller
         ]);
     }
 
-    public function show($url)
+    public function show(Post $post)
     {
         // Show a single resource
 
-        $post = Post::where('url', $url)->firstOrFail();
+        // $post = Post::where('id', $id)->firstOrFail();
 
         return view('posts.show', [
             'post' => $post
@@ -38,47 +38,47 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         // Persist the resource
 
-        $post = new Post();
-        $post->title = request('title');
-        $post->description = request('description');
-        $post->body = request('body');
-        $post->url = request('url');
+        // $request
 
-        $post->save();
+        Post::create($this->validatePost($request));
 
-        return redirect('/blog');
+        return redirect(route('posts.index'));
     }
 
-    public function edit($url)
+    public function edit(Post $post)
     {
-        $post = Post::where('url', $url)->firstOrFail();
         // Show a view to edit an existing resource
-        return view('posts.edit', ['post' => $post]);
+        return view('posts.edit', compact('post'));
     }
 
-    public function update($url)
+    public function update(Request $request, $id)
     {
-        $post = Post::where('url', $url)->firstOrFail();
-        // Persist the edited resource
-        $post->title = request('title');
-        $post->description = request('description');
-        $post->body = request('body');
-        $post->url = request('url');
-        $post->save();
-
-        return redirect('/blog/'. $post->url);
+        Post::where('id', $id)->update($this->validatePost($request));
+        return redirect('/posts/'. $id);
     }
 
-    public function destroy($url)
+    public function destroy(Post $post)
     {
-        $post = Post::where('url', $url)->firstOrFail();
+        // $post = Post::where('id', $id)->firstOrFail();
         // Destroy the resource
         $post->delete();
 
-        return redirect('/blog');
+        return redirect(route('posts.index'));
+    }
+
+    /**
+     * @return array
+     */
+    public function validatePost(Request $request): array
+    {
+        return request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'body' => 'required',
+        ]);
     }
 }

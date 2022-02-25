@@ -46,7 +46,7 @@
                     </div>
                 </a>
 
-                <a href="blog.html">
+                <a href="{{route('posts.index')}}">
                     <div class="navcard">
                         <img src="/assets/images/index/index_blog.png" alt="Blog Icon">
                         <div class="centered">
@@ -55,7 +55,7 @@
                     </div>
                 </a>
 
-                <a href="faq.html">
+                <a href="{{route('faq.index')}}">
                     <div class="navcard">
                         <img src="/assets/images/index/index_faq.png" alt="FAQ Icon">
                         <div class="centered">
@@ -89,7 +89,7 @@
             <h1>Blog</h1>
             <p>Here you'll find some articles about me, the HZ, ICT and more.<br>
                 I hope you enjoy.</p>
-            <a href="blog.html">Go to my blog &#8594;</a>
+            <a href="{{route('posts.index')}}">Go to my blog &#8594;</a>
         </div>
     </section>
     <section class="wallpaper" style="background-image: url(/assets/images/index/index_faq_section.png);">
@@ -97,7 +97,7 @@
             <h1>Frequently Asked Questions</h1>
             <p>Ever wondered how to print a document at the HZ? Or what to do when you are ill? <br>
                 You can find answers to your pressing questions in the FAQ!</p>
-            <a href="faq">Go to the FAQ &#8594;</a>
+            <a href="{{route('faq.index')}}">Go to the FAQ &#8594;</a>
         </div>
     </section>
 @endsection()

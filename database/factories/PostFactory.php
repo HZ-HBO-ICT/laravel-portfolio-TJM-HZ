@@ -14,7 +14,6 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->text(20),
-            'url' => $this->faker->phoneNumber,
             'description' => $this->faker->text(30),
             'body' => $this->faker->text(500)
         ];

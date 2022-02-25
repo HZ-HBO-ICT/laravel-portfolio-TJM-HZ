@@ -14,6 +14,9 @@
 
                 <div>
                     <input type="text" name="question" id="question">
+                    @error('question')
+                    <p>{{$errors->first('question')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -22,6 +25,9 @@
 
                 <div>
                     <input type="text" name="answer" id="answer">
+                    @error('question')
+                    <p>{{$errors->first('answer')}}</p>
+                    @enderror
                 </div>
             </div>
 

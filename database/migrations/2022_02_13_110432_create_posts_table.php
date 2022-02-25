@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('title');
-            $table->text('url');
+            // $table->text('url');
             $table->text('description')->nullable();
             $table->text('body')->nullable();
             $table->text('preview_image_source')->default('/assets/images/index/index_blog.png');

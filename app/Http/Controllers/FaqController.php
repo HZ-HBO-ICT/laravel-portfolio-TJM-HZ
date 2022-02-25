@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use \Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
@@ -13,9 +14,7 @@ class FaqController extends Controller
 
         $faqs = Faq::latest()->get();
 
-        return view('faqs.index', [
-            'faqs' => $faqs
-        ]);
+        return view('faqs.index', ['faqs' => $faqs]);
     }
 
     public function show()
@@ -27,45 +26,42 @@ class FaqController extends Controller
     {
         // Show a view to create a new resource
 
-        return view('faqs.create');
+        return view('faq.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         // Persist the resource
-        $faq = new Faq();
-        $faq->question = request('question');
-        $faq->answer = request('answer');
+        Faq::create($this->validateFaq($request));
 
-        $faq->save();
-
-        return redirect('/faq');
+        return redirect(route('faq.index'));
     }
 
-    public function edit($id)
+    public function edit(Faq $faq)
     {
-        $faq = Faq::find($id);
         // Show a view to edit an existing resource
         return view('faqs.edit', ['faq' => $faq]);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $faq = Faq::find($id);
-
-        $faq->question = request('question');
-        $faq->answer = request('answer');
-        $faq->save();
-
-        return redirect('/faq');
-        // Persist the edited resource
+        Faq::where('id', $id)->update($this->validateFaq($request));
+        return redirect(route('faq.index'));
     }
 
-    public function destroy($id)
+    public function destroy(Faq $faq)
     {
-        $faq = Faq::find($id);
+        // $faq = Faq::find($id);
         $faq->delete();
 
-        return redirect('/faq');
+        return redirect(route('faq.index'));
+    }
+
+    public function validateFaq(Request $request) : array
+    {
+        return $request->validate([
+            'question' => 'required',
+            'answer' => 'required'
+            ]);
     }
 }

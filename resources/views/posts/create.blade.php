@@ -7,13 +7,16 @@
     <section class="text-align-left">
     <h1>New Article</h1>
 
-        <form method="POST" action="/blog">
+        <form method="POST" action="{{route('posts.index')}}">
             @csrf
             <div>
                 <label for="title">Title</label>
 
                 <div>
                     <input type="text" name="title" id="title">
+                    @error('title')
+                    <p>{{$errors->first('title')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -22,14 +25,7 @@
 
                 <div>
                     <input type="text" name="description" id="description">
-                </div>
-            </div>
-
-            <div>
-                <label for="url">url</label>
-
-                <div>
-                    <input type="text" name="url" id="url">
+                    <p>{{$errors->first('description')}}</p>
                 </div>
             </div>
 
@@ -38,6 +34,7 @@
 
                 <div>
                     <input type="text" name="body" id="body">
+                    <p>{{$errors->first('body')}}</p>
                 </div>
             </div>
 

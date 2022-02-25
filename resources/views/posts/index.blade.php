@@ -21,7 +21,7 @@
     <section class="blog-card-section">
         <div class="blog-card-container">
             @foreach ($posts as $post)
-                <a href="blog/{{$post->url}}">
+                <a href="{{route('posts.show', $post)}}">
                     <div class="blog-card">
                         <img src="{{$post->preview_image_source}}" alt="Blog Post Image">
 

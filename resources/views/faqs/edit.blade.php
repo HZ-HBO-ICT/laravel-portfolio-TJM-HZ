@@ -15,6 +15,9 @@
 
                 <div>
                     <input type="text" name="question" id="question" value="{{$faq->question}}">
+                    @error('question')
+                    <p>{{$errors->first('question')}}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -23,6 +26,9 @@
 
                 <div>
                     <input type="text" name="answer" id="answer" value="{{$faq->answer}}">
+                    @error('answer')
+                    <p>{{$errors->first('answer')}}</p>
+                    @enderror
                 </div>
             </div>
 
