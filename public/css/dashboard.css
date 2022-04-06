@@ -1,0 +1,36 @@
+/*STUDY MONITOR STYLINg*/
+.dashboard-header td {
+    background-color: lightgray;
+}
+
+.progress-bar-text {
+    position: relative;
+    font-weight: bold;
+    bottom: 32px;
+}
+
+.progress {
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px grey;
+}
+
+#studymonitor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#studymonitor > div {
+    width: 49%
+}
+
+#gradetable {
+    font-size: 14px;
+}
+
+@media screen and (max-width: 900px) {
+    #studymonitor > div {
+        width: 100%;
+    }
+}
