@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Faq;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -13,11 +12,11 @@ class FaqSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         DB::table('faqs')->insert([
-            'question' => 'Test question',
-            'answer' => 'Test answer',
+            'question' => 'Test question1',
+            'answer' => 'Test answer1',
         ]);
 
         DB::table('faqs')->insert([

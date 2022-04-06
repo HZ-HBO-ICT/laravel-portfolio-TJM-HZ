@@ -28,7 +28,7 @@
             <p>Click on any of these cards to go to the desired page.</p>
 
             <div class="flex" style="justify-content: left;">
-                <a href="profile.html">
+                <a href="profile">
                     <div class="navcard">
                         <img src="/assets/images/index/index_profile.png" alt="Profile Icon">
                         <div class="centered">
@@ -37,7 +37,7 @@
                     </div>
                 </a>
 
-                <a href="dashboard.html">
+                <a href="{{route('grades.index')}}">
                     <div class="navcard">
                         <img src="/assets/images/index/index_dashboard.png" alt="Dashboard Icon">
                         <div class="centered">
@@ -55,7 +55,7 @@
                     </div>
                 </a>
 
-                <a href="{{route('faq.index')}}">
+                <a href="{{route('faqs.index')}}">
                     <div class="navcard">
                         <img src="/assets/images/index/index_faq.png" alt="FAQ Icon">
                         <div class="centered">
@@ -73,7 +73,7 @@
             <h1>Profile</h1>
             <p>On this page I will talk a bit more about myself.<br>
                 Who I am, my hobbies and interests, that sort of thing.</p>
-            <a href="profile.html">Go to my profile &#8594;</a>
+            <a href="profile">Go to my profile &#8594;</a>
         </div>
     </section>
     <section class="wallpaper" style="background-image: url(/assets/images/index/index_dashboard_section.png);">
@@ -81,7 +81,7 @@
             <h1>Dashboard</h1>
             <p>The dashboard page visualizes all my study progress, <br>
                 displaying my grades, EC and other progress in tables and bars.</p>
-            <a href="dashboard.html">Go to my dashboard &#8594;</a>
+            <a href="{{route('grades.index')}}">Go to my dashboard &#8594;</a>
         </div>
     </section>
     <section class="wallpaper" style="background-image: url(/assets/images/index/index_blog_section.png);">
@@ -97,7 +97,7 @@
             <h1>Frequently Asked Questions</h1>
             <p>Ever wondered how to print a document at the HZ? Or what to do when you are ill? <br>
                 You can find answers to your pressing questions in the FAQ!</p>
-            <a href="{{route('faq.index')}}">Go to the FAQ &#8594;</a>
+            <a href="{{route('faqs.index')}}">Go to the FAQ &#8594;</a>
         </div>
     </section>
 @endsection()

@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section('css')
-<link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 @endsection()
 @section('main')
     <section class="wallpaper" style="background-image: url(assets/images/dashboard/bg_dashboard.png);">
@@ -18,6 +18,7 @@
 
         <div id="studymonitor">
             <div class="table-responsive" id="gradetable">
+                <a href="{{route('grades.create')}}">Add grade</a>
                 <table class="table table-bordered align-middle">
                     <thead>
                     <tr>
@@ -27,25 +28,29 @@
                         <th>EC</th>
                         <th>Exam</th>
                         <th>Grade</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($grades as $grade)
                         @if($grade->best_grade === null)
                             <tr class="bg-info">
-                            @elseif($grade->best_grade >= $grade->lowest_passing_grade)
+                        @elseif($grade->best_grade >= $grade->lowest_passing_grade)
                             <tr class="bg-success">
-                            @else
+                        @else
                             <tr class="bg-danger">
-                        @endif
-                            <td class="bg-whitesmoke">PLACEHOLDER</td>
+                                @endif
+                                <!--TODO: REPLACE PLACEHOLDERS-->
+                                <td class="bg-whitesmoke">PLACEHOLDER</td>
 
-                            <td>{{$grade->course_name}}</td>
-                            <td>{{$grade->ec}}</td>
-                            <td>typegoeshere</td>
-                            <td>{{$grade->best_grade}}</td>
-                        </tr>
-                    @endforeach
+                                <td>{{$grade->course_name}}</td>
+                                <td>{{$grade->ec}}</td>
+                                <td>{{$grade->exam_type}}</td>
+                                <td>{{$grade->best_grade}}</td>
+                                <td><a href="{{route('grades.edit', $grade)}}" class="button">Edit</a>
+                                </td>
+                            </tr>
+                            @endforeach
                     </tbody>
                 </table>
             </div>
@@ -75,18 +80,16 @@
                         Failing to reach at least 60 EC will result in an NBSA (Negative Binding Study Advice),<br>
                         which would likely prevent me from continuing my study.</div>
                 </div>
-
-                @for($i = 0; $i < count($grades); $i++)
-
-                @endfor
-
+<!--TODO: MAKE THE PROGRESS BAR FUNCTIONAL
                 <div>
                     <div class="progress">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: 1%" aria-valuenow="50"
                              aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <div class="progress-bar-text">0 / 60 EC EARNED</div>
+                    <div class="progress-bar-text">
+                        0 / 60 EC EARNED</div>
                 </div>
+                -->
             </div>
         </div>
 

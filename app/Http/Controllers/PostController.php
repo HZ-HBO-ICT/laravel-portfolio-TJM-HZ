@@ -40,9 +40,6 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        // Persist the resource
-
-        // $request
 
         Post::create($this->validatePost($request));
 
@@ -71,6 +68,7 @@ class PostController extends Controller
     }
 
     /**
+     * @param Request $request
      * @return array
      */
     public function validatePost(Request $request): array

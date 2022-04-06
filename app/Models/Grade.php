@@ -8,16 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Grade extends Model
 {
     use HasFactory;
-    public function addResult($grade)
+
+    protected $fillable = ['course_name', 'exam_type', 'lowest_passing_grade', 'best_grade', 'ec'];
+
+    public function course()
     {
-        if ($grade > $this->best_grade) {
-            $this->best_grade = $grade;
-
-            if ($this->best_grade >= $this->lowest_passing_grade) {
-                $this->passed_at = now();
-            }
-        }
-
-        $this->save();
+        return $this->belongsTo(Course::class);
     }
 }

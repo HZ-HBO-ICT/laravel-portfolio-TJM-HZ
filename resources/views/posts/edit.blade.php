@@ -6,7 +6,7 @@
 @section('main')
     <section class="text-align-left">
     <h1>Edit Blog Post</h1>
-    
+
         <form method="POST" action="{{route('posts.show', $post)}}">
             @csrf
             @method('PUT')
@@ -46,11 +46,10 @@
             </div>
         </form>
 
-        <form method="POST" action="{{route('posts.index', $post)}}">
+        <form method="POST" action="{{route('posts.destroy', $post)}}">
             @csrf
             @method('DELETE')
                 <button type="submit">Delete</button>
         </form>
-
     </section>
 @endsection()

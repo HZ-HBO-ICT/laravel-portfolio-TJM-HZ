@@ -14,9 +14,7 @@
 
                 <div>
                     <input type="text" name="title" id="title">
-                    @error('title')
                     <p>{{$errors->first('title')}}</p>
-                    @enderror
                 </div>
             </div>
 

@@ -11,7 +11,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/bs5/css/bootstrap.css">
     <link rel="stylesheet" href="/css/styles.css">
-    @yield('css')
+    <title>Tim's Website</title>
+@yield('css')
     <!--<link rel="canonical" href="https://tjm-hz.github.io">-->
 
 </head>
@@ -23,12 +24,12 @@
 <header>
     <nav>
         <a class="lettermark" href="/">Tim's Website</a>
-
+        <!--TODO: ASK ABOUT USING WILDCARDS-->
         <a class="{{ Request::path() === '/' ? 'currentpage' : '' }}" href="/">Home</a>
         <a class="{{ Request::path() === 'profile' ? 'currentpage' : '' }}" href="/profile">Profile</a>
-        <a class="{{ Request::path() === 'dashboard' ? 'currentpage' : '' }}" href="/dashboard">Dashboard</a>
-        <a class="{{ Request::path() === 'posts' ? 'currentpage' : '' }}" href="/posts">Blog</a> <!-- TODO: Add wildcard -->
-        <a class="{{ Request::path() === 'faq' ? 'currentpage' : '' }}" href="/faq">FAQ</a>
+        <a href="{{route('grades.index')}}" class="{{ Request::route()->getName() === 'grades.index' || Request::route()->getName() === 'grades.show' ? 'currentpage' : '' }}">Dashboard</a>
+        <a href="{{route('posts.index')}}" class="{{ Request::route()->getName() === 'posts.index' || Request::route()->getName() === 'posts.show' ? 'currentpage' : '' }}" >Blog</a>
+        <a href="{{route('faqs.index')}}" class="{{ Request::route()->getName() === 'faqs.index' ? 'currentpage' : '' }}" >FAQ</a>
     </nav>
 </header>
 
@@ -52,8 +53,8 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="profile">Profile</a></li>
-                <li><a href="dashboard">Dashboard</a></li>
-                <li><a href="blog">Blog</a></li>
+                <li><a href="{{route('grades.index')}}">Dashboard</a></li>
+                <li><a href="{{route('posts.index')}}">Blog</a></li>
                 <li><a href="faq">FAQ</a></li>
             </ul>
         </div>

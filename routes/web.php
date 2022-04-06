@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\FaqController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -19,14 +20,10 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [WelcomeController::class, 'show']);
 
-Route::resource('/faq', FaqController::class);
-
-Route::get('/dashboard', function () {
-    return view('dashboard', [
-        'grades' => App\Models\Grade::all()
-    ]);
-});
+Route::resource('/faqs', FaqController::class);
 
 Route::resource('/posts', PostController::class);
+
+Route::resource('/grades', GradeController::class);
 
 Route::get('/{page}', [PageController::class, 'show']);
